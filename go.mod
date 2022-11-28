@@ -4,6 +4,8 @@ go 1.19
 
 require github.com/go-chi/chi/v5 v5.0.7
 
+require github.com/graphql-go/graphql v0.8.0 // indirect
+
 require (
 	github.com/go-chi/chi v1.5.4
 	github.com/golang-jwt/jwt/v4 v4.4.2 // indirect

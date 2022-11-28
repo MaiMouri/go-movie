@@ -10,10 +10,9 @@ import (
 type JSONResponse struct {
 	Error   bool        `json:"error"`
 	Message string      `json:"message"`
-	Data    interface{} `json:"data, omitempty"`
+	Data    interface{} `json:"data,omitempty"`
 }
 
-// ... means including zero or more
 func (app *application) writeJSON(w http.ResponseWriter, status int, data interface{}, headers ...http.Header) error {
 	out, err := json.Marshal(data)
 	if err != nil {
@@ -45,7 +44,6 @@ func (app *application) readJSON(w http.ResponseWriter, r *http.Request, data in
 	dec.DisallowUnknownFields()
 
 	err := dec.Decode(data)
-
 	if err != nil {
 		return err
 	}
@@ -54,6 +52,7 @@ func (app *application) readJSON(w http.ResponseWriter, r *http.Request, data in
 	if err != io.EOF {
 		return errors.New("body must only contain a single JSON value")
 	}
+
 	return nil
 }
 
